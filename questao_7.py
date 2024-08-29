@@ -9,6 +9,7 @@ class SortMethods:
         comparisons = 0
         movements = 0
         
+        print("Início do Insertion Sort")
         start_time = time.time()  # Início do cronômetro
         n = len(array)
         for i in range(1, n):
@@ -32,12 +33,14 @@ class SortMethods:
         end_time = time.time()
         elapsed_time = end_time - start_time
         
+        print(f"Finalizado Insertion Sort: Comparações = {comparisons}, Movimentos = {movements}, Tempo = {elapsed_time:.4f}s")
         return comparisons, movements, elapsed_time
 
     def select_sort(self, array):
         comparisons = 0
         movements = 0
 
+        print("Início do Selection Sort")
         start_time = time.time()  # Início do cronômetro
         n = len(array)
         for i in range(n - 1):
@@ -55,12 +58,14 @@ class SortMethods:
         end_time = time.time()
         elapsed_time = end_time - start_time
         
+        print(f"Finalizado Selection Sort: Comparações = {comparisons}, Movimentos = {movements}, Tempo = {elapsed_time:.4f}s")
         return comparisons, movements, elapsed_time
 
     def shell_sort(self, array):
         comparisons = 0
         movements = 0
 
+        print("Início do Shell Sort")
         start_time = time.time()  # Início do cronômetro
         n = len(array)
         h = 1
@@ -90,6 +95,7 @@ class SortMethods:
         end_time = time.time()
         elapsed_time = end_time - start_time
         
+        print(f"Finalizado Shell Sort: Comparações = {comparisons}, Movimentos = {movements}, Tempo = {elapsed_time:.4f}s")
         return comparisons, movements, elapsed_time
 
     def heap_sort(self, v):
@@ -97,6 +103,7 @@ class SortMethods:
         total_movements = 0
         tamanho_vetor = len(v)
 
+        print("Início do Heap Sort")
         start_time = time.time()  # Início do cronômetro
 
         for i in range(tamanho_vetor // 2 - 1, -1, -1):
@@ -115,6 +122,7 @@ class SortMethods:
         end_time = time.time()
         elapsed_time = end_time - start_time
         
+        print(f"Finalizado Heap Sort: Comparações = {total_comparisons}, Movimentos = {total_movements}, Tempo = {elapsed_time:.4f}s")
         return total_comparisons, total_movements, elapsed_time
 
     def constroi_heap(self, v, n, i):
@@ -143,6 +151,7 @@ class SortMethods:
         return comparisons, movements
 
     def merge_sort(self, v):
+        print("Início do Merge Sort")
         start_time = time.time()  # Início do cronômetro
 
         comparisons, movements = self._merge_sort(v)
@@ -151,6 +160,7 @@ class SortMethods:
         end_time = time.time()
         elapsed_time = end_time - start_time
         
+        print(f"Finalizado Merge Sort: Comparações = {comparisons}, Movimentos = {movements}, Tempo = {elapsed_time:.4f}s")
         return comparisons, movements, elapsed_time
 
     def _merge_sort(self, v):
@@ -202,6 +212,7 @@ def test_algorithms():
     results = []
 
     for size in sizes:
+        print(f"\nGerando vetor de tamanho {size}...")
         vector = generate_descending_vector(size)
 
         for sort_name, sort_method in {
@@ -211,6 +222,7 @@ def test_algorithms():
             "Heap Sort": sorter.heap_sort,
             "Merge Sort": sorter.merge_sort
         }.items():
+            print(f"\nExecutando {sort_name} para vetor de tamanho {size}...")
             vector_copy = vector.copy()
             comparisons, movements, elapsed_time = sort_method(vector_copy)
             results.append({
@@ -220,6 +232,7 @@ def test_algorithms():
                 'movements': movements,
                 'time': elapsed_time
             })
+            print(f"Finalizado {sort_name}: Comparações = {comparisons}, Movimentos = {movements}, Tempo = {elapsed_time:.4f}s")
 
     # Criar uma tabela usando numpy
     dtype = [('Algorithm', 'U20'), ('Size', 'i4'), ('Comparisons', 'i8'), ('Movements', 'i8'), ('Time (s)', 'f8')]
