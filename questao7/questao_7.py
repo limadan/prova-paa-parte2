@@ -8,6 +8,7 @@ class SortMethods:
         pass
 
     def insertion_sort(self, array):
+        print("Início do Insertion Sort")
         comparisons = 0
         movements = 0
         
@@ -30,12 +31,13 @@ class SortMethods:
             array[j + 1] = aux
             movements += 1
 
-        # Medir o tempo de execução
         end_time = time.time()
         elapsed_time = end_time - start_time
+        print("Fim do Insertion Sort")
         return comparisons, movements, elapsed_time
 
     def select_sort(self, array):
+        print("Início do Selection Sort")
         comparisons = 0
         movements = 0
 
@@ -52,12 +54,13 @@ class SortMethods:
             array[i], array[min_index] = array[min_index], array[i]
             movements += 3  # troca de dois elementos
 
-        # Medir o tempo de execução
         end_time = time.time()
         elapsed_time = end_time - start_time
+        print("Fim do Selection Sort")
         return comparisons, movements, elapsed_time
 
     def shell_sort(self, array):
+        print("Início do Shell Sort")
         comparisons = 0
         movements = 0
 
@@ -86,12 +89,13 @@ class SortMethods:
                 array[j] = aux
                 movements += 1
 
-        # Medir o tempo de execução
         end_time = time.time()
         elapsed_time = end_time - start_time
+        print("Fim do Shell Sort")
         return comparisons, movements, elapsed_time
 
     def heap_sort(self, v):
+        print("Início do Heap Sort")
         total_comparisons = 0
         total_movements = 0
         tamanho_vetor = len(v)
@@ -110,9 +114,9 @@ class SortMethods:
             total_comparisons += comparisons
             total_movements += movements
         
-        # Medir o tempo de execução
         end_time = time.time()
         elapsed_time = end_time - start_time
+        print("Fim do Heap Sort")
         return total_comparisons, total_movements, elapsed_time
 
     def constroi_heap(self, v, n, i):
@@ -141,13 +145,14 @@ class SortMethods:
         return comparisons, movements
 
     def merge_sort(self, v):
+        print("Início do Merge Sort")
         start_time = time.time()  # Início do cronômetro
 
         comparisons, movements = self._merge_sort(v)
 
-        # Medir o tempo de execução
         end_time = time.time()
         elapsed_time = end_time - start_time
+        print("Fim do Merge Sort")
         return comparisons, movements, elapsed_time
 
     def _merge_sort(self, v):
@@ -207,10 +212,8 @@ def read_input_file(filename):
 def test_algorithms(input_file, output_file):
     sorter = SortMethods()
     
-    # Ler os dados de entrada
     inputs = read_input_file(input_file)
 
-    # Criar uma tabela usando prettytable
     tabela = PrettyTable()
     tabela.field_names = ["Method", "Size", "Vector Type", "Time (s)"]
 
@@ -241,24 +244,25 @@ def test_algorithms(input_file, output_file):
 
         tabela.add_row([method_name, size, vector_type, f"{elapsed_time:.2e}"])
 
-        # Atualizar os resultados para o gráfico
-        if method_name not in results:
-            results[method_name] = {"comparisons": 0, "movements": 0}
-        results[method_name]["comparisons"] += comparisons
-        results[method_name]["movements"] += movements
+        if size not in results:
+            results[size] = {}
+        
+        if method_name not in results[size]:
+            results[size][method_name] = {"comparisons": 0, "movements": 0}
+        
+        results[size][method_name]["comparisons"] += comparisons
+        results[size][method_name]["movements"] += movements
 
-    # Salvar a tabela em um arquivo
     with open(output_file, 'w') as file:
         file.write(str(tabela))
 
-    # Imprimir a tabela
     print("\nTabela de Resultados (Tempo em segundos, notação científica):")
     print(tabela)
 
-    # Plotar o gráfico
-    plot_results(results)
+    for size in results:
+        plot_results(results[size], size)
 
-def plot_results(results):
+def plot_results(results, size):
     if not results:
         print("Nenhum resultado para plotar.")
         return
@@ -283,13 +287,13 @@ def plot_results(results):
 
     ax.set_xlabel('Método')
     ax.set_ylabel('Quantidade')
-    ax.set_title('Comparações e Movimentações por Algoritmo')
+    ax.set_title(f'Comparações e Movimentações por Algoritmo (Tamanho: {size})')
     ax.set_xticks([p + bar_width/2 for p in x])
     ax.set_xticklabels(methods)
     ax.legend()
 
     plt.tight_layout()
-    plt.savefig('questao7/algorithms_comparison.png')
+    plt.savefig(f'questao7/algorithms_comparison_size_{size}.png')
     plt.show()
 
 if __name__ == "__main__":

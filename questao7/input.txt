@@ -1,3 +1,10 @@
-Insert,1000000,OrdC
-Merge,1000000,OrdA
+Insert,100,OrdA
+Shell,100,OrdA
+Select,100,OrdA
+Merge,100,OrdA
+Heap,100,OrdA
+Insert,1000,OrdA
+Shell,1000,OrdA
+Select,1000,OrdA
+Merge,1000,OrdA
 Heap,1000,OrdA

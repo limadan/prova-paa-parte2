@@ -1,7 +1,14 @@
-+----------------+---------+-------------+----------+
-|     Method     |   Size  | Vector Type | Time (s) |
-+----------------+---------+-------------+----------+
-| Insertion Sort | 1000000 |     OrdC    | 1.84e-01 |
-|   Merge Sort   | 1000000 |     OrdA    | 4.81e+00 |
-|   Heap Sort    |   1000  |     OrdA    | 3.75e-03 |
-+----------------+---------+-------------+----------+
++----------------+------+-------------+----------+
+|     Method     | Size | Vector Type | Time (s) |
++----------------+------+-------------+----------+
+| Insertion Sort | 100  |     OrdA    | 3.07e-04 |
+|   Shell Sort   | 100  |     OrdA    | 1.10e-04 |
+| Selection Sort | 100  |     OrdA    | 3.07e-04 |
+|   Merge Sort   | 100  |     OrdA    | 1.97e-04 |
+|   Heap Sort    | 100  |     OrdA    | 2.37e-04 |
+| Insertion Sort | 1000 |     OrdA    | 3.78e-02 |
+|   Shell Sort   | 1000 |     OrdA    | 2.29e-03 |
+| Selection Sort | 1000 |     OrdA    | 3.56e-02 |
+|   Merge Sort   | 1000 |     OrdA    | 2.41e-03 |
+|   Heap Sort    | 1000 |     OrdA    | 6.04e-03 |
++----------------+------+-------------+----------+
