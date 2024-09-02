@@ -8,3 +8,11 @@ Shell,1000,OrdA
 Select,1000,OrdA
 Merge,1000,OrdA
 Heap,1000,OrdA
+Insert,10000,OrdA
+Shell,10000,OrdA
+Select,10000,OrdA
+Merge,10000,OrdA
+Heap,10000,OrdA
+Shell,1000000,OrdA
+Merge,1000000,OrdA
+Heap,1000000,OrdA
