@@ -214,8 +214,9 @@ def test_algorithms(input_file, output_file):
     
     inputs = read_input_file(input_file)
 
+    # Atualizando os cabeçalhos da tabela para incluir comparações e movimentações
     tabela = PrettyTable()
-    tabela.field_names = ["Method", "Size", "Vector Type", "Time (s)"]
+    tabela.field_names = ["Method", "Size", "Vector Type", "Time (s)", "Comparisons", "Movements"]
 
     results = {}
 
@@ -242,7 +243,8 @@ def test_algorithms(input_file, output_file):
         else:
             raise ValueError(f"Método desconhecido: {method}")
 
-        tabela.add_row([method_name, size, vector_type, f"{elapsed_time:.2e}"])
+        # Adiciona os dados na tabela, incluindo comparações e movimentações
+        tabela.add_row([method_name, size, vector_type, f"{elapsed_time:.2e}", comparisons, movements])
 
         if size not in results:
             results[size] = {}
@@ -253,12 +255,14 @@ def test_algorithms(input_file, output_file):
         results[size][method_name]["comparisons"] += comparisons
         results[size][method_name]["movements"] += movements
 
+    # Salvar a tabela no arquivo de saída
     with open(output_file, 'w') as file:
         file.write(str(tabela))
 
     print("\nTabela de Resultados (Tempo em segundos, notação científica):")
     print(tabela)
 
+    # Geração de gráficos para cada tamanho de vetor
     for size in results:
         plot_results(results[size], size)
 
@@ -295,6 +299,7 @@ def plot_results(results, size):
     plt.tight_layout()
     plt.savefig(f'questao7/algorithms_comparison_size_{size}.png')
     plt.show()
+
 
 if __name__ == "__main__":
     test_algorithms('questao7/input.txt', 'questao7/output.txt')

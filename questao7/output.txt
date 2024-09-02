@@ -1,22 +1,22 @@
-+----------------+---------+-------------+----------+
-|     Method     |   Size  | Vector Type | Time (s) |
-+----------------+---------+-------------+----------+
-| Insertion Sort |   100   |     OrdA    | 3.80e-04 |
-|   Shell Sort   |   100   |     OrdA    | 1.44e-04 |
-| Selection Sort |   100   |     OrdA    | 3.29e-04 |
-|   Merge Sort   |   100   |     OrdA    | 2.12e-04 |
-|   Heap Sort    |   100   |     OrdA    | 2.52e-04 |
-| Insertion Sort |   1000  |     OrdA    | 3.37e-02 |
-|   Shell Sort   |   1000  |     OrdA    | 2.19e-03 |
-| Selection Sort |   1000  |     OrdA    | 3.24e-02 |
-|   Merge Sort   |   1000  |     OrdA    | 2.71e-03 |
-|   Heap Sort    |   1000  |     OrdA    | 3.86e-03 |
-| Insertion Sort |  10000  |     OrdA    | 3.25e+00 |
-|   Shell Sort   |  10000  |     OrdA    | 4.35e-02 |
-| Selection Sort |  10000  |     OrdA    | 3.06e+00 |
-|   Merge Sort   |  10000  |     OrdA    | 3.51e-02 |
-|   Heap Sort    |  10000  |     OrdA    | 6.05e-02 |
-|   Shell Sort   | 1000000 |     OrdA    | 1.14e+01 |
-|   Merge Sort   | 1000000 |     OrdA    | 4.68e+00 |
-|   Heap Sort    | 1000000 |     OrdA    | 9.43e+00 |
-+----------------+---------+-------------+----------+
++----------------+---------+-------------+----------+-------------+-----------+
+|     Method     |   Size  | Vector Type | Time (s) | Comparisons | Movements |
++----------------+---------+-------------+----------+-------------+-----------+
+| Insertion Sort |   100   |     OrdA    | 2.96e-04 |     2467    |    2569   |
+|   Shell Sort   |   100   |     OrdA    | 1.11e-04 |     736     |    1115   |
+| Selection Sort |   100   |     OrdA    | 2.90e-04 |     4950    |    297    |
+|   Merge Sort   |   100   |     OrdA    | 2.60e-04 |     838     |    672    |
+|   Heap Sort    |   100   |     OrdA    | 2.73e-04 |     3286    |    1770   |
+| Insertion Sort |   1000  |     OrdA    | 3.49e-02 |    249355   |   250361  |
+|   Shell Sort   |   1000  |     OrdA    | 2.39e-03 |    13540    |   19418   |
+| Selection Sort |   1000  |     OrdA    | 3.45e-02 |    499500   |    2997   |
+|   Merge Sort   |   1000  |     OrdA    | 2.51e-03 |    11703    |    9976   |
+|   Heap Sort    |   1000  |     OrdA    | 4.37e-03 |    52294    |   27342   |
+| Insertion Sort |  10000  |     OrdA    | 3.49e+00 |   25038864  |  25048875 |
+|   Shell Sort   |  10000  |     OrdA    | 4.59e-02 |    233485   |   313091  |
+| Selection Sort |  10000  |     OrdA    | 3.39e+00 |   49995000  |   29997   |
+|   Merge Sort   |  10000  |     OrdA    | 3.34e-02 |    150590   |   133616  |
+|   Heap Sort    |  10000  |     OrdA    | 6.35e-02 |    720326   |   372570  |
+|   Shell Sort   | 1000000 |     OrdA    | 1.20e+01 |   61795662  |  74009440 |
+|   Merge Sort   | 1000000 |     OrdA    | 5.15e+00 |   21674417  |  19951424 |
+|   Heap Sort    | 1000000 |     OrdA    | 1.10e+01 |  111889801  |  57145527 |
++----------------+---------+-------------+----------+-------------+-----------+
